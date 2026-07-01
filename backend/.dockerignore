@@ -1,0 +1,10 @@
+.gradle
+build/**
+!build/libs/
+!build/libs/*.jar
+bin
+out
+application-local.yaml
+application-local.yml
+.idea
+*.iml

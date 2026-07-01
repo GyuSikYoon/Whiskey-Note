@@ -1,0 +1,364 @@
+/* Apple 타입 스케일 (라운지·상세와 동일)
+   - Font: SF Pro → 한글 Apple SD Gothic Neo · Weight 400/600/700 */
+:where(.wf-survey-scroll, .wf-survey-layout) {
+  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", "Apple SD Gothic Neo", "Pretendard", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-root .wf-survey-scroll {
+  overflow: visible;
+  flex: 1 0 auto;
+  padding: 34px 24px 120px;
+  align-items: stretch;
+}
+
+.app-root .wf-survey-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 760px) 168px;
+  align-items: flex-start;
+  gap: 28px;
+  max-width: 1040px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.app-root .wf-survey-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-root .wf-survey-intro {
+  margin-bottom: 22px;
+}
+
+.app-root .wf-survey-intro__title {
+  margin: 4px 0 0;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.app-root .wf-survey-intro__subtitle {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--wf-muted);
+}
+
+.app-root .wf-survey-q {
+  border-style: solid;
+  padding: 28px;
+  margin-top: 20px;
+  border-color: var(--wf-border);
+  border-radius: var(--wf-radius-card);
+  background: var(--wf-surface);
+  animation: wf-survey-in 0.22s ease;
+  scroll-margin-top: 24px;
+}
+
+.app-root .wf-survey-q__title {
+  margin: 0 0 20px;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+/* 우측 sticky 레일 — 진행률 + 문항 네비 */
+.app-root .wf-survey-rail {
+  position: sticky;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 168px;
+  flex-shrink: 0;
+}
+
+.app-root .wf-survey-progress {
+  padding: 16px;
+  border: 1px solid rgba(213, 173, 69, 0.18);
+  border-radius: 14px;
+  background: var(--wf-surface);
+}
+
+.app-root .wf-survey-progress__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--wf-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.app-root .wf-survey-progress__label strong {
+  color: var(--wf-accent-light);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.app-root .wf-survey-progress__track {
+  height: 8px;
+  margin-top: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--wf-surface-2);
+}
+
+.app-root .wf-survey-progress__track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--wf-accent), var(--wf-accent-light));
+  transition: width 0.22s ease;
+}
+
+@keyframes wf-survey-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.app-root .wf-survey-opts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 0;
+}
+
+.app-root .wf-opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  min-height: 58px;
+  padding: 15px 17px;
+  border-radius: 12px;
+  border: 1px solid var(--wf-border);
+  background: var(--wf-surface-2);
+  color: var(--wf-text);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.45;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.app-root .wf-opt:hover {
+  border-color: rgba(213, 173, 69, 0.45);
+}
+
+.app-root .wf-opt--on {
+  border-color: var(--wf-accent);
+  background: var(--wf-accent-dim);
+  color: var(--wf-accent-dark);
+}
+
+.app-root .wf-survey-q .wf-chip {
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+/* 타입 선택 (입문자 / 애호가) */
+.app-root .wf-survey-type-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.app-root .wf-survey-type-option {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 24px;
+  border: 1px solid var(--wf-border);
+  border-radius: 12px;
+  background: var(--wf-surface-2);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.app-root .wf-survey-type-option:hover {
+  border-color: var(--wf-accent);
+  background: var(--wf-accent-dim);
+}
+
+.app-root .wf-survey-type-option strong {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--wf-text);
+}
+
+.app-root .wf-survey-type-option em {
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--wf-muted);
+}
+
+/* 문항 네비 (레일 내부) */
+.app-root .wf-survey-nav {
+  padding: 14px;
+  border: 1px solid var(--wf-border);
+  border-radius: 16px;
+  background: var(--wf-surface);
+}
+
+.app-root .wf-survey-nav__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--wf-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 0 0 10px 4px;
+}
+
+.app-root .wf-survey-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.app-root .wf-survey-nav__item {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--wf-border);
+  background: var(--wf-surface);
+  color: var(--wf-muted);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.app-root .wf-survey-nav__item:hover:not(:disabled) {
+  border-color: var(--wf-accent);
+  color: var(--wf-text);
+}
+
+.app-root .wf-survey-nav__item--done {
+  border-color: var(--wf-accent);
+  color: var(--wf-accent);
+}
+
+.app-root .wf-survey-nav__item--active {
+  background: var(--wf-accent-dim);
+  border-color: var(--wf-accent);
+  color: var(--wf-accent-dark);
+}
+
+.app-root .wf-survey-nav__item--locked,
+.app-root .wf-survey-nav__item:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .app-root .wf-survey-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .app-root .wf-survey-main {
+    display: contents;
+  }
+
+  .app-root .wf-survey-intro {
+    order: 1;
+  }
+
+  .app-root .wf-survey-rail {
+    order: 2;
+    position: sticky;
+    top: 72px;
+    z-index: 2;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 4px;
+    background: linear-gradient(var(--wf-bg) 70%, transparent);
+  }
+
+  .app-root .wf-survey-q,
+  .app-root .wf-survey-type-select {
+    order: 3;
+  }
+
+  .app-root .wf-survey-submit {
+    order: 4;
+  }
+
+  .app-root .wf-survey-nav {
+    padding: 12px;
+  }
+
+  .app-root .wf-survey-nav__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .app-root .wf-survey-nav__item {
+    width: 44px;
+  }
+
+  .app-root .wf-survey-q {
+    padding: 20px;
+  }
+
+  .app-root .wf-survey-intro__title {
+    font-size: 26px;
+  }
+}
+
+/* ─── Survey shared tokens ─── */
+.wf-survey-intro__eyebrow {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--wf-muted);
+}
+.wf-survey-tag-group { margin-top: 16px; }
+.wf-survey-tag-label { margin-bottom: 8px; }
+.wf-survey-opt__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--wf-muted);
+  font-weight: 400;
+}
+.wf-survey-submit { margin-top: 24px; }
+
+.app-root .wf-survey-submit--cta.wf-btn--primary {
+  height: 48px;
+  border-radius: 12px;
+  background: var(--wf-accent);
+  border-color: var(--wf-accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.app-root .wf-survey-submit--cta.wf-btn--primary:hover:not(:disabled) {
+  background: var(--wf-accent-light);
+  border-color: var(--wf-accent-light);
+  color: #fff;
+  transform: none;
+}

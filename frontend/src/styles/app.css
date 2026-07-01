@@ -1,0 +1,199 @@
+/* App shell — full viewport (not Figma device frame) */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--wf-bg);
+  color: var(--wf-text);
+}
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--wf-bg);
+}
+
+.app-root .wf-page {
+  min-height: 0;
+}
+
+.app-root .wf-page__inner {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+}
+
+/* ─── Misc ─── */
+.app-root .wf-link {
+  color: var(--wf-accent);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font: inherit;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.app-root .wf-link:hover {
+  color: var(--wf-accent-light);
+}
+
+.app-root .wf-tab-item {
+  cursor: pointer;
+}
+
+.app-root .wf-sidebar .wf-box {
+  cursor: pointer;
+}
+
+.app-root .wf-card--clickable {
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+}
+
+.app-root .wf-card--clickable:hover {
+  border-color: var(--wf-accent);
+  background: color-mix(in srgb, var(--wf-surface) 88%, var(--wf-accent) 12%);
+  box-shadow: var(--wf-shadow-md);
+  transform: translateY(-2px);
+}
+
+.app-root .wf-guest-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 16px;
+}
+
+.app-root .wf-page--guest-landing {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-root .wf-mybar-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.app-root .wf-mybar-tabs a {
+  text-decoration: none;
+}
+
+.app-root .wf-mybar-tabs .wf-chip {
+  cursor: pointer;
+}
+
+.app-root .wf-mybar-tabs .wf-chip--on {
+  border-color: var(--wf-accent);
+  background: var(--wf-accent-dim);
+  color: var(--wf-accent);
+}
+
+.app-root .wf-detail-tags__image {
+  width: 128%;
+  height: 128%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.app-root .wf-dual-range {
+  width: 100%;
+}
+
+.app-root .wf-dual-range--disabled {
+  opacity: 0.55;
+}
+
+.app-root .wf-dual-range__track-wrap {
+  position: relative;
+  height: 28px;
+}
+
+.app-root .wf-dual-range__track,
+.app-root .wf-dual-range__active {
+  position: absolute;
+  top: 13px;
+  height: 4px;
+  border-radius: 999px;
+}
+
+.app-root .wf-dual-range__track {
+  left: 0;
+  right: 0;
+  background: var(--wf-surface-3);
+}
+
+.app-root .wf-dual-range__active {
+  background: linear-gradient(90deg, var(--wf-wine), var(--wf-accent));
+}
+
+.app-root .wf-dual-range__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  pointer-events: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.app-root .wf-dual-range__input::-webkit-slider-runnable-track {
+  height: 4px;
+  background: transparent;
+}
+
+.app-root .wf-dual-range__input::-moz-range-track {
+  height: 4px;
+  background: transparent;
+}
+
+.app-root .wf-dual-range__input::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  margin-top: -7px;
+  border: 2px solid var(--wf-bg);
+  border-radius: 50%;
+  background: var(--wf-accent);
+  cursor: pointer;
+  pointer-events: auto;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: 0 4px 14px rgba(213, 173, 69, 0.24);
+}
+
+.app-root .wf-dual-range__input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--wf-bg);
+  border-radius: 50%;
+  background: var(--wf-accent);
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 4px 14px rgba(213, 173, 69, 0.24);
+}
+
+.app-root .wf-dual-range__input:disabled::-webkit-slider-thumb,
+.app-root .wf-dual-range__input:disabled::-moz-range-thumb {
+  cursor: not-allowed;
+}
+
+@media (max-width: 960px) {
+  .app-root .wf-layout-split,
+  .app-root .wf-layout-detail,
+  .app-root .wf-layout-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .app-root .wf-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

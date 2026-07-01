@@ -1,0 +1,31 @@
+# =====================================================
+# [로컬 설정 예시] application-local.yaml.example
+# cp application-local.yaml.example application-local.yaml
+# application-local.yaml 은 gitignore — 커밋 금지
+# =====================================================
+
+spring:
+  flyway:
+    enabled: false
+
+  datasource:
+    # docker compose mysql (호스트 3307) — RDS 시드 deploy/seed-local.sh 와 함께 사용
+    url: jdbc:mysql://127.0.0.1:3307/whiskeynote?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: localroot
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  sql:
+    init:
+      mode: never
+
+# Anthropic / OAuth / JWT 등은 필요 시 아래에 추가 (AI_TASTING_NOTE_SETUP.md 참고)
+# anthropic:
+#   api-key: your_anthropic_api_key

@@ -1,0 +1,66 @@
+/* ───────── LandingPage ───────── */
+
+/* 이미지 전체 배경 영역 */
+.wf-landing-bg {
+  flex: 1;
+  position: relative;
+  background-image: url('/images/landing-hero-whiskey.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 56px 52px;
+}
+
+/* 전체 배경 살짝 어둡게 */
+.wf-landing-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 7, 10, 0.28);
+  pointer-events: none;
+}
+
+/* 히어로 글래스 카드 — 이미지 하단 좌측 배치 */
+.wf-landing-hero {
+  position: relative;
+  z-index: 1;
+  width: 340px;
+  padding: 28px 32px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--wf-border);
+  box-shadow: var(--wf-shadow-lg);
+}
+
+.wf-landing-cta {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.wf-landing-stats {
+  padding: 0 40px 34px;
+  flex-wrap: wrap;
+}
+
+.wf-landing-stats .wf-stat {
+  border-color: var(--wf-border);
+}
+
+@media (max-width: 960px) {
+  .wf-landing-bg {
+    padding: 0 24px 40px;
+  }
+
+  .wf-landing-stats {
+    padding: 0 16px 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wf-landing-hero {
+    width: 100%;
+  }
+}
